@@ -123,4 +123,5 @@ app.get("/", function (req, res) {
     res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts});
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.PORT||port, ()=> console.log('running!'))
