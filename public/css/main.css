@@ -1,0 +1,19 @@
+ul {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 0px 4vw;
+}
+
+li {
+    font-weight: 100;
+    text-decoration: none;
+    padding: .25vw;
+    list-style-type:none;
+}
+
+.test {
+    display: block;
+    padding: .5vw;
+}

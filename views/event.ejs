@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/js.css" rel="stylesheet">
+    </head>
+<body>
+    <div class="js-page-wrapper">
+        <p><a href="/">Home</a></p>
+        <h2><%- event.title %></h2>
+        <hr>
+        <div class="description-wrapper">
+            <%- event.description %>
+        </div>
+        <div class="html text-center">
+            <%- event.html %>
+        </div>
+        <div class="code-main-wrapper">
+            <div class="code-wrapper">
+                <code><%- str %></code>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        <%- event.js %>
+    </script>
+</body>
+</html>

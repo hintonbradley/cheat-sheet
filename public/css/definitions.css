@@ -1,0 +1,17 @@
+.def-wrapper {
+    margin: 2vw 10vw;
+}
+.def-img {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.def-img img {
+    width: 100%;
+    max-width: 700px;
+}
+
+.card {
+    padding: 1vw;
+    margin: 1vw
+}
