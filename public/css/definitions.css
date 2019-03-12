@@ -6,9 +6,22 @@
     margin: 0 auto;
     text-align: center;
 }
-.def-img img {
+/* .def-img img {
     width: 100%;
     max-width: 700px;
+} */
+
+.def-img.large img {
+    width: 80%; 
+}
+
+.def-img.medium img {
+    width: 60%;
+}
+
+
+.def-img.small img {
+    width: 35%;
 }
 
 .card {

@@ -41,6 +41,13 @@ code {
     margin: 15px auto;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     text-align: center;
+    background: linear-gradient( to bottom, #6ba6fc, #0564e1, #6ba6fc );
+    color: white;
+    height: 60px;
+    width: 150px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: serif;
 }
 
 .description-wrapper {

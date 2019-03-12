@@ -119,7 +119,6 @@ app.get("/", function (req, res) {
     evtKeys.forEach(function(eKey){
         evts.push({link: eKey, title: jsEvts[eKey].title})
     })
-    console.log('evts: ', jsEvts)
     res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts});
 });
 
