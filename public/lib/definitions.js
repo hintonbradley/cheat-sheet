@@ -1,4 +1,9 @@
 let definitions = {
+    api: {
+        word: "API",
+        definition: "Part of a server that receives requests via a set of dedicated endpoints that return pure data responses usually in JSON or XML.",
+        images: []
+    },
     applicationLayers: {
         word: "Application Layers",
         definition: "(Can also be called application tiers) The three or more layers that make up an application, generally consiting of the <a href='../definition/presentationLayer'>Presentation layer</a>, the <a href='../definition/businessLayer'>Business layer</a> and the <a href='../definition/dataLayer'>Data layer</a>.",
@@ -81,6 +86,11 @@ let definitions = {
             imgAlt: 'dom'
         }]
     },
+    endpoint: {
+        word: "Endpoint",
+        definition: "URL <a href='../definition/path'>path</a> used to communicate with an <a href='../definition/api'>API</a>",
+        images: []
+    },
     garbageCollection: {
         word: "Garbage Collection",
         definition: "A form of automatic memory management. The garbage collector, or collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.",
@@ -142,6 +152,11 @@ let definitions = {
             text: 'With the HTML DOM, all nodes in the node tree can be accessed by JavaScript.<br>New nodes can be created, and all nodes can be modified or deleted.',
             imgAlt: 'Node'
         }]
+    },
+    path: {
+        word: "Path",
+        definition: "Part of a url that identifies the specific host resource that the web client wants to access.",
+        images: []
     },
     persistentLayer: {
         word: "Persistent Layer",
