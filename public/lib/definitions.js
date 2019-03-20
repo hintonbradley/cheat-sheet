@@ -88,7 +88,7 @@ let definitions = {
     },
     endpoint: {
         word: "Endpoint",
-        definition: "URL <a href='../definition/path'>path</a> used to communicate with an <a href='../definition/api'>API</a>",
+        definition: "A <a href='../definition/path'>path</a> used to communicate with an <a href='../definition/api'>API</a>",
         images: []
     },
     garbageCollection: {

@@ -6,6 +6,15 @@ ul {
     margin: 0px 4vw;
 }
 
+ul.list-3 {
+    -moz-column-count: 3;
+    -moz-column-gap: 25px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 25px;
+    column-count: 3;
+    column-gap: 25px;
+}
+
 li {
     font-weight: 100;
     text-decoration: none;
