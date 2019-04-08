@@ -28,3 +28,16 @@
     padding: 1vw;
     margin: 1vw
 }
+
+
+@media only screen and (max-width: 768px) {
+    .def-img {
+        width: 100%;
+    }
+    .def-img.medium img {
+        width: 100%;
+    }
+    .def-img.small img {
+        width: 100%;
+    }
+  }

@@ -40,8 +40,6 @@ let definitions = {
     },
     businessRules: {
         word: "Business Rules",
-        definition: "businessRules",
-        word: "Business Rules",
         definition: "Describes the operations, definitions and constraints that apply to an organization. The operations collectively form a process; every business uses these processes to form systems that get things done.",
         images: [{
             imgSrc: '../img/businessRules.jpg',
@@ -49,6 +47,16 @@ let definitions = {
             text: "For example, the <a href='../definition/businessLogic'>business logic</a> would take the user's input and manipulate it so it conforms to the company's business rules.",
             imgAlt: 'Business rules'
         }]
+    },
+    closure: {
+        word: "Closure",
+        definition: "Basically, a function inside another function. An inner function that has access to it's encompasing (outer) function's variables. A closure has 3 scope chains:<br><ul><li>It's own scope (variables defined between its curly brackets)</li><li>The outer function’s scope. (variables defined in it's encompasing function)</li><li>The global scope.</li></ul>",
+        images: [{
+            imgSrc: '../img/closure.jpg',
+            imgSize: 'medium',
+            text: 'With closures, the inner function still has access to the outer function’s variables even after the outer function has returned. When functions in JavaScript execute, they use the same scope chain that was in effect when they were created. This means that even after the outer function has returned, the inner function still has access to the outer function’s variables.',
+            imgAlt: 'Closure'
+        }],
     },
     databaseLayer: {
         word: "Database Layer",
@@ -96,7 +104,7 @@ let definitions = {
         definition: "A form of automatic memory management. The garbage collector, or collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.",
         images: [{
             imgSrc: '../img/gc1.jpg',
-            imgSize: 'small',
+            imgSize: 'medium',
             text: 'In the below image the arrow depicts an object reference. The global variable "user" references the object {name: "John"} (we’ll call it John for brevity). The "name" property of John stores a primitive, so it’s painted inside the object.',
             imgAlt: 'Garbage Collection 1'
         },

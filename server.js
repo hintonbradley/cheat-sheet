@@ -16,6 +16,7 @@ let definitions = require('./public/lib/definitions');
 let jsMethods = require('./public/lib/methods');
 let jsEvts = require('./public/lib/events');
 let tabs = ['Javascript','CSS','CS','Definitions'];
+let currentTab = 3;
 
 // ROUTING
 app.get('/definition/:word', function (req, res) {
