@@ -49,7 +49,6 @@
 </head>
 <body>
     <div class="tab">
-        <%= tabs[current] %>
         <% tabs.forEach(function(tab){ %>
             <button class="tablinks" onclick="showCategory(event, '<%= tab %>')"><%- tab %></button>
         <% }); %>
