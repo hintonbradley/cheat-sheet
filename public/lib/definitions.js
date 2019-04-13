@@ -171,6 +171,11 @@ let definitions = {
         definition: "The layer of the application that communicates between the application and database. Generally it is the layer between the <a href='../definition/businessLayer'>Business Layer</a> and the <a href='../definition/databaseLayer'>Database Layer</a> (if required).",
         images: []
     },
+    polyfill: {
+        word: "Polyfill",
+        definition: "Code written to provide modern functionality to older browsers that don't natively support it.<br><br>For example a polyfill could be used to mimic the functionality of an HTML Canvas element on Microsoft Internet Explorer 7 using a Silverlight plugin, or mimic support for CSS rem units, or text-shadow, or whatever you want.",
+        images: []
+    },
     presentationLayer: {
         word: "Presentation Layer",
         definition: "(Also known as the Client Layer) The top most layer of an application. A user will interact with the presentation layer when they use software. This layer passes user input to the <a href='../definition/businessLayer'>Business Layer</a>.",
