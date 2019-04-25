@@ -99,6 +99,41 @@ let definitions = {
         definition: "A <a href='../definition/path'>path</a> used to communicate with an <a href='../definition/api'>API</a>",
         images: []
     },
+    eventDelegation: {
+        word: "Event Delegation",
+        definition: "The idea of listening for a event on an element (that contanes multiple child elements) that is in the HTML on load, as opposed to adding event listeners to numerous elements and ones that may not be there after the page is loaded.",
+        images: [{
+            imgSrc: '../img/eventDelegation1.jpg',
+            imgSize: 'small',
+            text: 'We should NOT assign multiple event listeners to all the "li" elements as all of them may not be listed in the DOM on page load. Additionally, Assigning multiple event listeners is more costly as opposed to only adding one.',
+            imgAlt: 'Event Delegation1'
+        },
+        {imgSrc: '../img/eventDelegation2.jpg',
+        imgSize: 'large',
+        text: 'So instead of assigning multiple event listeners on all the child "li" elements, we only assign one event listener to the parent "ul" element and then use "target" and "nodeName" to find which element was clicked.',
+        imgAlt: 'Event Delegation1'}
+        ]
+    },
+    functionDeclaration: {
+        word: "Function Declaration",
+        definition: "Type of function declaration that does not have variable assignment. These occur as standalone constructs and cannot be nested within non-function blocks. These types of functions are not to be used as an <a href='../definition/iife'>IIFE</a>",
+        images: [{
+            imgSrc: '../img/functionDeclaration.jpg',
+            imgSize: 'large',
+            text: 'Types of function declaration.',
+            imgAlt: 'Function Declaration'
+        }]
+    },
+    functionExpression: {
+        word: "Function Expression",
+        definition: "Type of function declaration that as part of a larger expression syntax. (typically a variable assignment). These types of functions can be used as an <a href='../definition/iife'>IIFE</a>",
+        images: [{
+            imgSrc: '../img/functionExpression.jpg',
+            imgSize: 'medium',
+            text: 'Types of function expressions.',
+            imgAlt: 'Function Expression'
+        }]
+    },
     garbageCollection: {
         word: "Garbage Collection",
         definition: "A form of automatic memory management. The garbage collector, or collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.",
@@ -114,6 +149,11 @@ let definitions = {
             text: "If the value of user is overwritten, the reference is lost. Now John becomes unreachable. There’s no way to access it, no references to it. Garbage collector will junk the data and free the memory.",
             imgAlt: 'Garbage Collection 2'
         }]
+    },
+    iife: {
+        word: "IIFE",
+        definition: "Immediately invoked <a href='../definition/functionExpression'>function expression</a>",
+        images: []
     },
     io: {
         word: "I/O",
