@@ -68,43 +68,43 @@ app.get('/js/event/:name', function (req, res) {
     res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
 });
 
-app.get('/jss/event/:name', function (req, res) {
-    var myFunc = function (str) {
-        var newArr = [];
-        var counter = 0;
-        var space = '&nbsp;';
-        var newLine = '<br />';
-        for(let i=0; i<str.length; i++) {
-            if (str[i]===';'){
-                newArr.push(str[i])
-                newArr.push(newLine)
-                for(var j=0;j<counter;j++){
-                    newArr.push(space)
-                }
-            } else if (str[i]==='{'){
-                newArr.push(str[i])
-                newArr.push(newLine)
-                counter +=2;
-                for(var j=0;j<counter;j++){
-                    newArr.push(space)
-                }
-            } else if (str[i]==='}'){
-                newArr.push(newLine)
-                counter -=2;
-                for(var j=0;j<counter;j++){
-                    newArr.push(space)
-                }
-                newArr.push(str[i])
-            }else if (str[i]===' '){
-            newArr.push(space)
-            } else {
-            newArr.push(str[i])
-            }
-        }
-        return newArr.join('')
-    }
-    res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
-});
+// app.get('/jss/event/:name', function (req, res) {
+//     var myFunc = function (str) {
+//         var newArr = [];
+//         var counter = 0;
+//         var space = '&nbsp;';
+//         var newLine = '<br />';
+//         for(let i=0; i<str.length; i++) {
+//             if (str[i]===';'){
+//                 newArr.push(str[i])
+//                 newArr.push(newLine)
+//                 for(var j=0;j<counter;j++){
+//                     newArr.push(space)
+//                 }
+//             } else if (str[i]==='{'){
+//                 newArr.push(str[i])
+//                 newArr.push(newLine)
+//                 counter +=2;
+//                 for(var j=0;j<counter;j++){
+//                     newArr.push(space)
+//                 }
+//             } else if (str[i]==='}'){
+//                 newArr.push(newLine)
+//                 counter -=2;
+//                 for(var j=0;j<counter;j++){
+//                     newArr.push(space)
+//                 }
+//                 newArr.push(str[i])
+//             }else if (str[i]===' '){
+//             newArr.push(space)
+//             } else {
+//             newArr.push(str[i])
+//             }
+//         }
+//         return newArr.join('')
+//     }
+//     res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
+// });
 
 app.get("/", function (req, res) {
     let defs=[], meths=[], evts=[];

@@ -43,6 +43,22 @@ $( "#box2" ).hover(function() {
 	$( this ).removeClass( "red" );
 });`,
 	},
+	join: {
+		title: 'Join (Arrays)',
+		name: 'Join',
+		link: 'join',
+		button: true,
+		description: 'Method that joins all elements of an array into a string. The argument is what will separate each element in the string.',
+		html: '<div class="text-center"><div class="in-bl mlr-10">myArray:<div id="result">["This","should","be","a","string"]</div></div></div>',
+		method:
+`
+function arrToString () {
+	let myArr = ["This","should","be","a","string"];
+	let result = document.getElementById('result');
+	result.innerText=myArr.join(' ');
+}
+`,
+	},
 	map: {
 		title: 'Map',
 		name: 'map',
@@ -57,7 +73,83 @@ $( "#box2" ).hover(function() {
 	let newEl = document.getElementById('new');
 	newEl.innerText='[' + map1.join(', ') + ']';
 }`,
+},
+	mathCeil: {
+		title: 'Math.ceil',
+		name: 'Math.ceil',
+		link: 'mathCeil',
+		button: true,
+		description: "Returns a number that is rounded up to the nearest integer.",
+        html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"><div class="in-bl mlr-10">Result:<div id="result"></div></div></div>',
+		method:
+`function () {
+	var v = document.getElementById('number');
+	let res = document.getElementById('result');
+	res.innerText=Math.ceil(v.value);
+}
+`,
 	},
+	mathFloor: {
+		title: 'Math.floor',
+		name: 'MathFloor',
+		link: 'mathFloor',
+		button: true,
+		description: "Returns a number that is rounded down to the nearest integer.",
+        html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"><div class="in-bl mlr-10">Result:<div id="result"></div></div></div>',
+		method:
+`function () {
+	var v = document.getElementById('number');
+	let res = document.getElementById('result');
+	res.innerText=Math.floor(v.value);
+}
+`,
+	},
+mathPow: {
+	title: 'Math.pow',
+	name: 'MathPow',
+	link: 'mathPow',
+	button: true,
+	description: "Returns a number (using first parameter), powered to (second parameter).",
+	html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""><div><label for="power">Power</label><input type="text" name="power" id="power" value=""></div><div class="text-center"><div class="in-bl mlr-10">Result:<div id="result"></div></div></div>',
+	method:
+`function () {
+	var v = document.getElementById('number');
+	var p = document.getElementById('power');
+	let res = document.getElementById('result');
+	res.innerText=Math.pow(v.value,p.value);
+}
+`,
+	},
+	mathRandom: {
+		title: 'Math.random',
+		name: 'Math.random',
+		link: 'mathRandom',
+		button: true,
+		description: "Returns a random number between 0 and 1",
+        html: '<div class="text-center"><div class="in-bl mlr-10">Result:<div id="result"></div></div></div>',
+		method:
+`function () {
+	var x = 'Math.random() = ' + Math.random();
+	let res = document.getElementById('result');
+	res.innerText=x;
+}
+`,
+	},
+	mathSqrt: {
+		title: 'Math.sqrt',
+		name: 'MathSqrt',
+		link: 'mathSqrt',
+		button: true,
+		description: "Returns the square root of the parameter.",
+		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""><div class="text-center"><div class="in-bl mlr-10">Result:<div id="result"></div></div></div>',
+		method:
+	`function () {
+		var v = document.getElementById('number');
+		let res = document.getElementById('result');
+		res.innerText=Math.sqrt(v.value);
+	}
+	`,
+},
 	setinterval: {
 		title: 'Set Interval',
 		name: 'setInterval',
@@ -88,7 +180,44 @@ function () {
 		myFunc: function () {
 			console.log
 		}
-	}
+	},
+	shift: {
+		title: 'Shift (Arrays)',
+		name: 'Shift',
+		link: 'shift',
+		button: true,
+		description: 'Method that removes the first element from the beginning of an array.',
+		html: '<div class="text-center"><div class="in-bl mlr-10">Planets:<div id="result">[ Pluto, Neptune, Uranus ]</div></div></div>',
+		method:
+`
+function unshiftArr () {
+	let planets = [ "Pluto", "Neptune", "Uranus" ];
+	let result = document.getElementById('result');
+	planets.shift()
+	result.innerText="[ " + planets.join(' , ') + " ]";
+}
+`,
+},
+	unshift: {
+		title: 'Unshift (Arrays)',
+		name: 'Unshift',
+		link: 'unshift',
+		button: true,
+		description: 'Method that adds a new element to the beginning of an array.',
+		html: '<div class="text-center"><div class="in-bl mlr-10">Animaniacs Array:<div id="result">[ Wakko , Dot ]</div></div></div>',
+		method:
+`
+function unshiftArr () {
+	let animaniacs = ['Wakko','Dot'];
+	let result = document.getElementById('result');
+	animaniacs.unshift("Yakko")
+	result.innerText="[ " + animaniacs.join(' , ') + " ]";
+}
+`,
+}
+	// },
 }
 
 module.exports = jsMethods;
+
+
