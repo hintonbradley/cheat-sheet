@@ -26,3 +26,13 @@ li {
     display: block;
     padding: .5vw;
 }
+
+.mlr-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mlr-20 {
+    margin-left: 20px;
+    margin-right: 20px;
+}

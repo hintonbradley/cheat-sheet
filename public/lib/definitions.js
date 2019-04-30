@@ -58,6 +58,11 @@ let definitions = {
             imgAlt: 'Closure'
         }],
     },
+    currentTarget: {
+        word: "currentTarget",
+        definition: "When an event listener is triggered, this is the element that the listener was attached to - as opposed to the <a href='../definition/target'>target</a>.",
+        images: []
+    },
     databaseLayer: {
         word: "Database Layer",
         definition: "(Can also be called the storage tier) The application layer that consists of a database and a program for managing read and write access to a database.",
@@ -224,6 +229,11 @@ let definitions = {
     serviceLayer: {
         word: "Service Layer",
         definition: "The layer in an application that is responsible for providing or adding services to/from other applications. This layer can generally exposes the business functionality of the appication.",
+        images: []
+    },
+    target: {
+        word: "Target",
+        definition: "When an event listener is triggered, this is the element that triggered it - as opposed to the <a href='../definition/currentTarget'>currentTarget</a>.",
         images: []
     },
     weakMap: {

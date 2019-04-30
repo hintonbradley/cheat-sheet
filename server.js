@@ -42,7 +42,7 @@ app.get('/js/method/:name', function (req, res) {
         }
         return newArr.join('')
     }
-    let methodString = jsMethods[req.params.name].method.toString();
+    let methodString = jsMethods[req.params.name].js.toString();
     res.render('method',{method: jsMethods[req.params.name], str: myFunc(methodString)});
 });
 
