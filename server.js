@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 let definitions = require('./public/lib/definitions');
 let jsMethods = require('./public/lib/methods');
 let jsEvts = require('./public/lib/events');
-let tabs = ['Javascript','CSS','CS','Definitions'];
-let currentTab = 3;
+let domItems = require('./public/lib/dom');
+let tabs = ['Javascript','CSS','CS','Definitions','DOM'];
 
 // ROUTING
 app.get('/definition/:word', function (req, res) {
@@ -68,6 +68,28 @@ app.get('/js/event/:name', function (req, res) {
     res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
 });
 
+app.get('/dom/:name', function (req, res) {
+    var myFunc = function (str) {
+        var newArr = [];
+        var counter = 0;
+        var space = '&nbsp;';
+        var newLine = '<br />';
+        for(let i=0; i<str.length; i++) {
+            if (str[i]==='\n'){
+                newArr.push(newLine)
+            } else if (str[i]==='\t'){
+                newArr.push(space + space)
+            } else if (str[i]===' '){
+            newArr.push(space)
+            } else {
+            newArr.push(str[i])
+            }
+        }
+        return newArr.join('')
+    }
+    res.render('dom',{dom:domItems[req.params.name], str:myFunc(domItems[req.params.name].js)});
+});
+
 // app.get('/jss/event/:name', function (req, res) {
 //     var myFunc = function (str) {
 //         var newArr = [];
@@ -107,7 +129,8 @@ app.get('/js/event/:name', function (req, res) {
 // });
 
 app.get("/", function (req, res) {
-    let defs=[], meths=[], evts=[];
+    let defs=[], meths=[], evts=[], doms=[];
+
     let defKeys = Object.keys(definitions)
     defKeys.forEach(function(dKey){
         defs.push({link: dKey, word: definitions[dKey].word})
@@ -120,7 +143,12 @@ app.get("/", function (req, res) {
     evtKeys.forEach(function(eKey){
         evts.push({link: eKey, title: jsEvts[eKey].title})
     })
-    res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts});
+    let domEvts = Object.keys(domItems)
+    domEvts.forEach(function(domKey) {
+        console.log('domKey iss: ', domKey)
+        doms.push({link: domKey, title:domItems[domKey].title})
+    })
+    res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts, dom:doms});
 });
 
 // app.listen(port, () => console.log(`Example app listening on port ${port}!`))

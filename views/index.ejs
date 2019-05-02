@@ -52,22 +52,7 @@
         <% tabs.forEach(function(tab){ %>
             <button class="tablinks" onclick="showCategory(event, '<%= tab %>')"><%- tab %></button>
         <% }); %>
-    </div>
-  
-      <div id="Javascript" class="tabcontent">
-        <h3>Javascript</h3>
-        <ul><span class="test">Methods</span>
-          <% meths.forEach(function(meth){ %>
-          <li><a href="js/method/<%= meth.link %>"><%= meth.title %></a></li>
-          <% }); %>
-        </ul>
-        <ul><span class="test">Events</span>
-          <% evts.forEach(function(evt){ %>
-          <li><a href="js/event/<%= evt.link %>"><%= evt.title %></a></li>
-          <% }); %>
-        </ul>
-      </div>
-      
+    </div>    
       <div id="CSS" class="tabcontent">
         <h3>CSS</h3>
       </div>
@@ -81,6 +66,29 @@
         <ul class="list-3">
           <% defs.forEach(function(def){ %>
           <li><a href="definition/<%= def.link %>"><%= def.word %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div id="DOM" class="tabcontent">
+        <h3>DOM</h3>
+        <ul class="list-3">
+          <% dom.forEach(function(item){ %>
+          <li><a href="dom/<%= item.link %>"><%= item.title %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div id="Javascript" class="tabcontent">
+        <h3>Javascript</h3>
+        <ul><span class="test">Methods</span>
+          <% meths.forEach(function(meth){ %>
+          <li><a href="js/method/<%= meth.link %>"><%= meth.title %></a></li>
+          <% }); %>
+        </ul>
+        <ul><span class="test">Events</span>
+          <% evts.forEach(function(evt){ %>
+          <li><a href="js/event/<%= evt.link %>"><%= evt.title %></a></li>
           <% }); %>
         </ul>
       </div>

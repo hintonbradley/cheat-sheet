@@ -86,8 +86,13 @@ let definitions = {
     },
     document: {
         word: "Document (Object)",
-        definition: "The document object (document) represents the HTML that is displayed in a browser window. The document object has methods and properties it can use to get access to and modify the document (html) content. The way a document content is accessed and modified is called the Document Object Model, or <a href='../definition/dom'>DOM</a>.",
-        images: []
+        definition: "The document object (document) represents the HTML that is displayed in a browser window. The document object has methods and properties it can use to get access to and modify the document (html) content. The way a document content is accessed and modified is called the Document Object Model, or <a href='../definition/dom'>DOM</a>. The document object is the root node of the HTML document.",
+        images: [{
+            imgSrc:'../img/dom2.jpg',
+            imgSize: 'large',
+            text: 'The following properties and methods can be used on HTML documents:',
+            imgAlt: 'dom'
+        }]
     },
     dom: {
         word: "DOM (Document Object Model)",
@@ -98,6 +103,11 @@ let definitions = {
             text: '<ul><li><b>Window object</b> − Top of the hierarchy. It is the outmost element of the object hierarchy.</li><li><b>Document object</b> − Each HTML document that gets loaded into a window becomes a document object. The document contains the contents of the page. Each child of the document is considered a <a href="../definition/node">node</a>. </li><li><b>Form object</b> − Everything enclosed in the &lt;form>...&lt;/form> tags sets the form object.</li><li><b>Form control elements</b> − The form object contains all the elements defined for that object such as text fields, buttons, radio buttons, and checkboxes.</li></ul>',
             imgAlt: 'dom'
         }]
+    },
+    domainName: {
+        word: "Domain Name",
+        definition: "The 'easy to remember' name given to an IP address.<br>i.e: google.com ",
+        images: []
     },
     endpoint: {
         word: "Endpoint",
@@ -188,7 +198,7 @@ let definitions = {
     },
     moduleExports: {
         word: "module.exports",
-        definition: "A special object which is included in every JS file in the Node.js application by default.<br>module: A variable that represents current module<br>exports: An object that will be exposed as a module. So, whatever you assign to module.exports or exports, will be exposed as a module.<br><br>Example:<br><br>&nbsp;&nbsp;Name.js<br><code style='color: grey;'>&nbsp;&nbsp;&nbsp;&nbsp;module.exports = {firstName: 'James'};</code><br><br>&nbsp;&nbsp;server.js<br><code style='color: grey;'>&nbsp;&nbsp;&nbsp;&nbsp;var name = require('./Name.js');<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(name.firstName);</code>",
+        definition: "A special object which is included in every JS file in the Node.js application by default.<br>module: A variable that represents current module (or the module to be used)<br>exports: An object that will be exposed as a module. So, whatever you assign to module.exports or exports, will be exposed as a module.<br><br>Example:<br><br>&nbsp;&nbsp;<span class='violet'>Name.js</span><br><code style='color: grey;'>&nbsp;&nbsp;&nbsp;&nbsp;module.exports = {<span class='red'>firstName</span>: 'James'};</code><br><br>&nbsp;&nbsp;server.js<br><code style='color: grey;'>&nbsp;&nbsp;&nbsp;&nbsp;var <span class='green'>name</span> = require('./<span class='violet'>Name.js</span>');<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class='green'>name</span>.<span class='red'>firstName</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'James'</code>",
         images: []
     },
     mutation: {

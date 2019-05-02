@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM Properties and Methods</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+        <link href="/css/js.css" rel="stylesheet">
+    </head>
+<body>
+    <div class="js-page-wrapper">
+        <p><a href="/" class="home-link">Home</a></p>
+        <h2><%- dom.title %></h2>
+        <hr>
+        <div class="description-wrapper">
+            <p><%- dom.description %></p>
+        </div>
+        <div class="html-wrapper">
+            <p><%- dom.html %></p>
+        </div>
+        <div class="code-main-wrapper">
+            <div class="code-wrapper">
+                <code><%- str %></code>
+            </div>
+        </div>
+        <div>
+            <%if (dom.button) { %>
+                <button class="btn btn-success trigger-btn" onclick="(<%= dom.method %>())"><%= dom.name %></button>
+            <% } %>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        <%- dom.onLoad %>
+    </script>
+</body>
+</html>
