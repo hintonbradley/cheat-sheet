@@ -16,7 +16,27 @@ let definitions = require('./public/lib/definitions');
 let jsMethods = require('./public/lib/methods');
 let jsEvts = require('./public/lib/events');
 let domItems = require('./public/lib/dom');
+let cssRules = require('./public/lib/css');
 let tabs = ['Javascript','CSS','CS','Definitions','DOM'];
+
+var methodToString = function (str) {
+    var newArr = [];
+    var counter = 0;
+    var space = '&nbsp;';
+    var newLine = '<br />';
+    for(let i=0; i<str.length; i++) {
+        if (str[i]==='\n'){
+            newArr.push(newLine)
+        } else if (str[i]==='\t'){
+            newArr.push(space + space)
+        } else if (str[i]===' '){
+        newArr.push(space)
+        } else {
+        newArr.push(str[i])
+        }
+    }
+    return newArr.join('')
+}
 
 // ROUTING
 app.get('/definition/:word', function (req, res) {
@@ -24,112 +44,25 @@ app.get('/definition/:word', function (req, res) {
 });
 
 app.get('/js/method/:name', function (req, res) {
-    var myFunc = function (str) {
-        var newArr = [];
-        var counter = 0;
-        var space = '&nbsp;';
-        var newLine = '<br />';
-        for(let i=0; i<str.length; i++) {
-            if (str[i]==='\n'){
-                newArr.push(newLine)
-            } else if (str[i]==='\t'){
-                newArr.push(space + space)
-            } else if (str[i]===' '){
-            newArr.push(space)
-            } else {
-            newArr.push(str[i])
-            }
-        }
-        return newArr.join('')
-    }
     let methodString = jsMethods[req.params.name].js.toString();
-    res.render('method',{method: jsMethods[req.params.name], str: myFunc(methodString)});
+    res.render('method',{method: jsMethods[req.params.name], str: methodToString(methodString)});
 });
 
 app.get('/js/event/:name', function (req, res) {
-    var myFunc = function (str) {
-        var newArr = [];
-        var counter = 0;
-        var space = '&nbsp;';
-        var newLine = '<br />';
-        for(let i=0; i<str.length; i++) {
-            if (str[i]==='\n'){
-                newArr.push(newLine)
-            } else if (str[i]==='\t'){
-                newArr.push(space + space)
-            } else if (str[i]===' '){
-            newArr.push(space)
-            } else {
-            newArr.push(str[i])
-            }
-        }
-        return newArr.join('')
-    }
-    res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
+    res.render('event',{event:jsEvts[req.params.name], str:methodToString(jsEvts[req.params.name].js)});
 });
 
 app.get('/dom/:name', function (req, res) {
-    var myFunc = function (str) {
-        var newArr = [];
-        var counter = 0;
-        var space = '&nbsp;';
-        var newLine = '<br />';
-        for(let i=0; i<str.length; i++) {
-            if (str[i]==='\n'){
-                newArr.push(newLine)
-            } else if (str[i]==='\t'){
-                newArr.push(space + space)
-            } else if (str[i]===' '){
-            newArr.push(space)
-            } else {
-            newArr.push(str[i])
-            }
-        }
-        return newArr.join('')
-    }
-    res.render('dom',{dom:domItems[req.params.name], str:myFunc(domItems[req.params.name].js)});
+    res.render('dom',{dom:domItems[req.params.name], str:methodToString(domItems[req.params.name].js)});
 });
 
-// app.get('/jss/event/:name', function (req, res) {
-//     var myFunc = function (str) {
-//         var newArr = [];
-//         var counter = 0;
-//         var space = '&nbsp;';
-//         var newLine = '<br />';
-//         for(let i=0; i<str.length; i++) {
-//             if (str[i]===';'){
-//                 newArr.push(str[i])
-//                 newArr.push(newLine)
-//                 for(var j=0;j<counter;j++){
-//                     newArr.push(space)
-//                 }
-//             } else if (str[i]==='{'){
-//                 newArr.push(str[i])
-//                 newArr.push(newLine)
-//                 counter +=2;
-//                 for(var j=0;j<counter;j++){
-//                     newArr.push(space)
-//                 }
-//             } else if (str[i]==='}'){
-//                 newArr.push(newLine)
-//                 counter -=2;
-//                 for(var j=0;j<counter;j++){
-//                     newArr.push(space)
-//                 }
-//                 newArr.push(str[i])
-//             }else if (str[i]===' '){
-//             newArr.push(space)
-//             } else {
-//             newArr.push(str[i])
-//             }
-//         }
-//         return newArr.join('')
-//     }
-//     res.render('event',{event:jsEvts[req.params.name], str:myFunc(jsEvts[req.params.name].js)});
-// });
+app.get('/css/:name', function (req, res) {
+    console.log(req.params.name)
+    res.render('css',{css:cssRules[req.params.name], str:methodToString(cssRules[req.params.name].code)});
+});
 
 app.get("/", function (req, res) {
-    let defs=[], meths=[], evts=[], doms=[];
+    let defs=[], meths=[], evts=[], doms=[], cssItems=[];
 
     let defKeys = Object.keys(definitions)
     defKeys.forEach(function(dKey){
@@ -145,10 +78,14 @@ app.get("/", function (req, res) {
     })
     let domEvts = Object.keys(domItems)
     domEvts.forEach(function(domKey) {
-        console.log('domKey iss: ', domKey)
         doms.push({link: domKey, title:domItems[domKey].title})
     })
-    res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts, dom:doms});
+    let cssKeys = Object.keys(cssRules)
+    cssKeys.forEach(function(cssKey){
+        cssItems.push({link: cssKey, title: cssRules[cssKey].title})
+    })
+    console.log(cssItems)
+    res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts, dom:doms, css:cssItems});
 });
 
 // app.listen(port, () => console.log(`Example app listening on port ${port}!`))

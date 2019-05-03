@@ -55,6 +55,11 @@
     </div>    
       <div id="CSS" class="tabcontent">
         <h3>CSS</h3>
+        <ul class="list-3">
+          <% css.forEach(function(item){ %>
+          <li><a href="css/<%= item.link %>"><%= item.title %></a></li>
+          <% }); %>
+        </ul>
       </div>
       
       <div id="CS" class="tabcontent">
