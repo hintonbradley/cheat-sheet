@@ -1,4 +1,26 @@
 let definitions = {
+    adaCompliance: {
+        word: "ADA Compliance",
+        definition: "The Americans with Disabilities Act (also known as ADA) is a comprehensive civil rights law that was enacted to protect individuals with disabilities from discrimination. Title III of the ADA mandates that all “places of public accommodation” (all business open to the public) are legally required to remove any “access barriers” that would hinder a disabled person’s access to that business’s goods or services. Guidelines for ADA Compliance can be found via the <a href='../definition/w3c-web-content-accessibility-guidelines'>World Wide Web Consortium’s (W3C) Web Content Accessibility Guidelines (WCAG 2.0 AA)</a> or directly accessed at <a href='https://www.w3.org/WAI/standards-guidelines/wcag/'>wc3 guidelines</a>.",
+        images: [{
+            imgSrc: '../img/ada1.png',
+            imgSize: 'xlarge',
+            text: '',
+            imgAlt: 'Ada compliance points 1'
+        },
+        {
+            imgSrc: '../img/ada2.png',
+            imgSize: 'xlarge',
+            text: '',
+            imgAlt: 'Ada compliance points 2'
+        },
+        {
+            imgSrc: '../img/ada3.png',
+            imgSize: 'xlarge',
+            text: '',
+            imgAlt: 'Ada compliance points 3'
+        }]
+    },
     api: {
         word: "API",
         definition: "Part of a server that receives requests via a set of dedicated endpoints that return pure data responses usually in JSON or XML.",
@@ -113,6 +135,16 @@ let definitions = {
         word: "Endpoint",
         definition: "A <a href='../definition/path'>path</a> used to communicate with an <a href='../definition/api'>API</a>",
         images: []
+    },
+    entrypoint: {
+        word: "Entry Point",
+        definition: "An application's entry point is the resource (module, file, function, etc) that is the access point to the application. Generally, the resource is where the code begins - or first module of code. Entry points are generally used to control user's access to different versions of the application.",
+        images: [{
+            imgSrc: '../img/dependency-graph.jpg',
+            imgSize: 'xlarge',
+            text: ' In webpack, there are files specified as entry points. These entry points are at the top of the dependency graph below. Any files required or imported from the entry files will be processed and bundled by webpack.',
+            imgAlt: 'Entry point dependency graph'
+        }],
     },
     eventDelegation: {
         word: "Event Delegation",
@@ -244,6 +276,11 @@ let definitions = {
     target: {
         word: "Target",
         definition: "When an event listener is triggered, this is the element that triggered it - as opposed to the <a href='../definition/currentTarget'>currentTarget</a>.",
+        images: []
+    },
+    w3cWebContentAccessibilityGuidelines: {
+        word: "W3C Web Content Accessibility Guidelines",
+        definition: "Web Content Accessibility Guidelines (WCAG) is developed through the W3C process in cooperation with individuals and organizations around the world, with a goal of providing a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally. The WCAG documents explain how to make web content more accessible to people with disabilities. Web “content” generally refers to the information in a web page or web application, including:<ul><li>natural information such as text, images, and sounds</li><li>code or markup that defines structure, presentation, etc.</li></ul><p>More information can be found on the <a href='https://www.w3.org/WAI/standards-guidelines/wcag/'>The W3C Web Content Accessibility Guidelines page</a>.</p>",
         images: []
     },
     weakMap: {

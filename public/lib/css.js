@@ -1,4 +1,38 @@
 let css = {
+    after: {
+        title: 'after (pseudo-element)',
+        name: 'after (pseudo-element)',
+		link: 'after',
+        description: `A pesudo-element that allows the insertion of content without having to place it in the html. The end result does not add content to the DOM even though it appears on the page.`,
+        button: function () {
+            var target = getElementById('target');
+            console.log('target is: ', target);
+            target.classList.add("music")
+        },
+        onLoad: null,
+        html: `<style>
+        .music:after {content: url('');
+        background:url('../img/music.png');
+        background-repeat: no-repeat;
+        background-size: 37px;
+        width: 37px; /* width of the image */;
+        height: auto; /* height of the image */;
+        display: inline-block;}
+        </style>
+        <div>
+            <h1 style="margin: 0 auto; width: 300px;" class="text-center" id="target">Music</h1>
+        </div>`,
+        code: ''
+    },before: {
+        title: 'before (pseudo-element)',
+        name: 'before (pseudo-element)',
+		link: 'before',
+        description: `See <a href="/css/after">after</a>`,
+        button: null,
+        onLoad: ``,
+        html: ``,
+        code: ``
+    },
     boxModel: {
         title: 'Box Model',
         name: 'Box Model',
@@ -16,7 +50,7 @@ let css = {
         <div style="margin: 0 auto; background: red; width: 150px; height: 150px;" class="outer">
             <div style="background: black;width: 125px;position: relative; height: 125px;right: -50%;top: 50%;transform: translate(-50%, -50%);" class="middle">
                 <div style="background: green;color: white;width: 100px;height: 100px;      /*   Nope =(   margin-left: -25%;   margin-top: -25%;   */    /*    Yep!   */position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%);" class="inner">
-                    <div style="background: purple;color: white;width: 75px;height: 75px; position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%);" class="inner">Box Model Example</div></div>
+                    <div style="background: purple;color: white; width: 70px; text-align: center; padding-top: 8px;height: 70px; position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%);" class="inner">Box Model Example</div></div>
             </div>
         </div>
     </div>`,
@@ -71,11 +105,21 @@ let css = {
         name: 'Transform',
 		link: 'transform',
         description: `A property that allows you to apply a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements. If the property does not have a string value, it must use a method to transform the element. Click <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function">transform methods</a> for a list of different methods you can use with this property.`,
-        button: false,
+        button: `function () {
+            var inner = document.getElementById('inner');
+            inner.classList.add("add-transform")
+        }`,
         onLoad: ``,
-        html: '<p style="text-align: center;">Example:</p>',
-        code: `.element {
-    transform: transformMethod(params);
+        html: `<style>
+        .add-transform {right: -50%;top: 50%;transform: translate(-50%, -50%);}
+        </style>
+        <p style="text-align: center;">Example:</p>
+        <div style="margin: 0 auto; background: red; width: 100px; height: 100px;" id="outer">
+            <div style="background: black;width: 25px;position: relative; height: 25px;" id="inner"></div></div>`,
+        code: `.box {
+    right: -50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }`
     }
 }

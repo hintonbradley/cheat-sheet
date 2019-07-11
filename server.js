@@ -57,7 +57,6 @@ app.get('/dom/:name', function (req, res) {
 });
 
 app.get('/css/:name', function (req, res) {
-    console.log(req.params.name)
     res.render('css',{css:cssRules[req.params.name], str:methodToString(cssRules[req.params.name].code)});
 });
 
@@ -84,7 +83,6 @@ app.get("/", function (req, res) {
     cssKeys.forEach(function(cssKey){
         cssItems.push({link: cssKey, title: cssRules[cssKey].title})
     })
-    console.log(cssItems)
     res.render('index', {tabs:tabs, defs:defs, meths:meths, evts:evts, dom:doms, css:cssItems});
 });
 

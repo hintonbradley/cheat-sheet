@@ -11,6 +11,10 @@
     max-width: 700px;
 } */
 
+.def-img.xlarge img {
+    width: 100%;
+}
+
 .def-img.large img {
     width: 80%; 
 }
