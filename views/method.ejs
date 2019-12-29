@@ -10,26 +10,46 @@
         <link href="/css/js.css" rel="stylesheet">
     </head>
 <body>
-    <div class="js-page-wrapper">
-        <p><a href="/">Home</a></p>
-        <h2><%- method.title %></h2>
-        <hr>
-        <div class="description-wrapper">
-            <p><%- method.description %></p>
-        </div>
-        <div class="html-wrapper">
-            <p><%- method.html %></p>
-        </div>
-        <div class="code-main-wrapper">
-            <div class="code-wrapper">
-                <code><%- str %></code>
-            </div>
-        </div>
+    <nav class="top-nav">
+        <a class="text-center" href="/">Home</a>
+    </nav>
+    <h3 class="text-center title"><u><%- method.name %></u> method</h3>
+    <hr>
+    <div class="description-wrapper">
+        <p class="in-bl"><u>What does it do?</u></p>
+        <p class="in-bl mlr-50">The <b><%- method.name %></b> method <%- method.description %></p>
         <div>
-            <%if (method.button) { %>
-                <button class="btn btn-success trigger-btn" onclick="(<%= method.method %>())"><%= method.name %></button>
+            <%if (method.mutation) { %>
+                <%if (method.mutation==='mutate') { %>
+                    <div class="text-center mutate">Mutates original array</div>
+                <% } %>
+                <%if (method.mutation==='non-mutate') { %>
+                    <div class="text-center non-mutate">Creates new array</div>
+                <% } %>
             <% } %>
         </div>
+    </div>
+    <div class="html-wrapper">
+            <div id="original-wrapper" class="in-bl card">
+                <p class="in-bl no-margin"><u>Original:</u></p>
+                <div id="original" class="mtb-5"><%- method.html %></div>
+            </div>
+        <%if (method.result) { %>
+        <div id="result-wrapper" class="in-bl card">
+            <p class="in-bl no-margin"><u>Result:</u></p>
+            <div id="result" class="mtb-5 hilight"></div>
+        </div>
+        <% } %>
+    </div>
+    <div class="code-main-wrapper">
+        <div class="code-wrapper">
+            <code><%- str %></code>
+        </div>
+    </div>
+    <div>
+        <%if (method.button) { %>
+            <button class="btn btn-success trigger-btn" onclick="(<%= method.method %>(<%- clbk %>))">Execute</button>
+        <% } %>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>

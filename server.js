@@ -4,6 +4,8 @@ const app = express()
 const bodyParser = require('body-parser')
 const port = 3000
 
+let test = require('./public/post.js');
+
 // Add public files
 app.use(express.static(__dirname + '/public'));
 
@@ -44,8 +46,8 @@ app.get('/definition/:word', function (req, res) {
 });
 
 app.get('/js/method/:name', function (req, res) {
-    let methodString = jsMethods[req.params.name].js.toString();
-    res.render('method',{method: jsMethods[req.params.name], str: methodToString(methodString)});
+    let methodString = jsMethods[req.params.name].method.toString();
+    res.render('method',{clbk: test, method: jsMethods[req.params.name], str: methodToString(methodString)});
 });
 
 app.get('/js/event/:name', function (req, res) {
@@ -61,15 +63,16 @@ app.get('/css/:name', function (req, res) {
 });
 
 app.get("/", function (req, res) {
+
     let defs=[], meths=[], evts=[], doms=[], cssItems=[];
 
     let defKeys = Object.keys(definitions)
     defKeys.forEach(function(dKey){
         defs.push({link: dKey, word: definitions[dKey].word})
     })
-    let methKeys = Object.keys(jsMethods)
+    let methKeys = Object.keys(jsMethods);
     methKeys.forEach(function(mKey){
-        meths.push({link: mKey, title: jsMethods[mKey].title})
+        meths.push({link: mKey, name: jsMethods[mKey].name })
     })
     let evtKeys = Object.keys(jsEvts)
     evtKeys.forEach(function(eKey){

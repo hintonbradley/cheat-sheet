@@ -7,15 +7,12 @@
     margin: 0px 10px;
 }
 
-.js-page-wrapper {
-    padding: 4vw;
-}
-
 .code-main-wrapper {
     display: inline-block;
     width: 100%;
-    transform:translateX(50%);
+    /* transform:translateX(50%); */
     margin: 15px auto;
+    text-align: center;
     
 }
 
@@ -23,7 +20,8 @@
     padding: 1vw;
     background-color: rgb(228, 228, 228);
     display: inline-block;
-    transform:translateX(-50%);
+    text-align: left;
+    /* transform:translateX(-50%); */
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
 }
@@ -38,13 +36,13 @@ code {
 
 .trigger-btn {
     display: block;
-    margin: 15px auto;
+    margin: 5px auto;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     text-align: center;
     background: linear-gradient( to bottom, #6ba6fc, #0564e1, #6ba6fc );
     color: white;
-    height: 60px;
-    font-size: 22px;
+    height: 40px;
+    font-size: 16px;
     font-weight: bold;
     font-family: serif;
 }
@@ -55,4 +53,16 @@ code {
 
 div.red {
     background: red;
+}
+
+.title {
+    margin: 10px;
+}
+
+hr {
+    margin: 5px;
+}
+
+p {
+    font-size: 20px;
 }

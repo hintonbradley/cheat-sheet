@@ -1,6 +1,5 @@
 let jsMethods = {
 	focus: {
-		title: '.focus',
 		name: 'focus',
 		link: 'focus',
 		button: false,
@@ -10,41 +9,28 @@ let jsMethods = {
 		method: `document.getElementById("address").focus();`,
 	},
 	foreach: {
-		title: 'For Each',
 		name: 'forEach',
-		link: 'forEach',
+		link: 'foreach',
 		button: true,
-		description: "Just like the <a href='/js/method/map'>map</a> method, forEach executes a provided function once for each element in an array. The difference is that the forEach method manipulates and changes the original array.",
-		html: '<div class="text-center"><div class="in-bl mlr-10">Original Array<div id="original">[2,4,6,8]</div></div></div>',
-		js: `array1.forEach(function(n, i) {
-				return array1[i] = n * 2;
-		  	});`,
+		result: true,
+		mutation: 'mutate',
+		description: "takes a function and executes it on each element in an array - while mutating the original array.",
+		html: '[2, 4, 6, 8]',
 		method:
-		function forEach () {
-			let array1 = [2,4,6,8];
-			array1.forEach(function(n, i) {
-				return array1[i] = n * 2;
+		function forEach (cb) {
+			let arr = [2,4,6,8];
+			arr.forEach(function(el, i) {
+				return arr[i] = el * 5;
 			});
-			let orig = document.getElementById('original');
-			orig.innerText='[' + array1.join(', ') + ']';
+			cb(arr);
 		}
-},
+	},
 	hover: {
-		title: '.hover (jquery)',
 		name: 'hover',
 		link: 'hover',
 		button: false,
-		description: "A jquery event that is executed when the mouse pointer enters and leaves the elements. You can bind one or two handlers to the matched elements - i.e. mouseenter and mouseleave. In the example below, box1 only has one handler which adds the 'red' class on hover, whereas box2 has two event handlers, the first being the same and the second removes the 'red' class from the element.",
+		description: "is a jquery event that is executed when the mouse pointer enters and leaves the elements. You can bind one or two handlers to the matched elements - i.e. mouseenter and mouseleave. In the example below, box1 only has one handler which adds the 'red' class on hover, whereas box2 has two event handlers, the first being the same and the second removes the 'red' class from the element.",
 		html: '<div id="box1" class="d-inline-block" style="margin: 0 auto; height: 100px; width: 100px; border: 1px solid black; padding-top: 34px;">box1</div><div class="d-inline-block" style="margin: 0 20px;"></div><div id="box2" class="d-inline-block" style="margin: 0 auto; height: 100px; width: 100px; border: 1px solid black; padding-top: 34px;">box2</div>',
-		js: `$( "#box1" ).hover(function() {
-			$( this ).addClass( "red" );
-		});
--------------------------------
-$( "#box2" ).hover(function() {
-	$( this ).addClass( "red" );
-}, function() {
-	$( this ).removeClass( "red" );
-});`,
 		method: 
 		`$( "#box1" ).hover(function() {
 			$( this ).addClass( "red" );
@@ -56,117 +42,102 @@ $( "#box2" ).hover(function() {
 		});`
 	},
 	join: {
-		title: 'Join (Arrays)',
-		name: 'Join',
+		name: 'join',
 		link: 'join',
 		button: true,
-		description: 'Method that joins all elements of an array into a string. The argument is what will separate each element in the string.',
-		html: '<div class="text-center"><div class="in-bl mlr-10"><div id="result"></div><div id="result2"></div></div></div>',
-		js: `arr.join(' ');`,
+		result: true,
+		description: 'joins all elements of an array into a string. The argument is what will separate each element in the string.',
+		html: '["This","should","be","a","string"]',
 		method: 
-		function arrToString () {
-			let result = document.getElementById('result');
-			result.innerText=myArr.join(' ');
-			let result2 = document.getElementById('result2');
-			result2.innerText=typeof(myArr.join(' '));
+		function arrToString (cb) {
+			let myArr = ["This","should","be","a","string"];
+			let newStr = myArr.join(' ');
+			cb(newStr)
 		},
-		onLoad: `
-		let myArr = ["This","should","be","a","string"];
-		let el = document.getElementById('result');
-		el.innerText= JSON.stringify(myArr);
-		let result2 = document.getElementById('result2');
-		result2.innerText=typeof(myArr);`
 	},
 	map: {
-		title: 'Map',
 		name: 'map',
 		link: 'map',
 		button: true,
-		description: "Just like the <a href='/js/method/foreach'>forEach</a> method, map executes a provided function once for each element in an array. The difference is that the map method returns a new array.",
-		html: '<div class="text-center"><div class="in-bl mlr-10">Original Array<div id="original"></div>[1, 2, 3, 4]</div><div class="in-bl mlr-10">Method Returns<div id="new"></div></div></div>',
-		js: `array.map(x => x * 2);`,
+		result: true,
+		mutation: 'non-mutate',
+		description: "takes a function and executes it on each element in an array - returning a new array.",
+		html: '[1, 2, 3, 4]',
 		method:
-			function mapArray () {
+			function mapArray (cb) {
 				let array1 = [1, 2, 3, 4];
-				const map1 = array1.map(x => x * 2);
-				let newEl = document.getElementById('new');
-				newEl.innerText='[' + map1.join(', ') + ']';
+				const map1 = array1.map(x => x * 10);
+				cb(map1, [1, 2, 3, 4])
 			},
-		},
+	},
 	mathCeil: {
 		title: 'Math.ceil',
 		name: 'Math.ceil',
 		link: 'mathCeil',
 		button: true,
-		description: "Returns a number that is rounded up to the nearest integer.",
-		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"><div class="in-bl mlr-10">Method Returns:<div id="result"></div></div></div>',
-		js: `Math.ceil(value)`,
+		result: true,
+		description: "returns a number that is rounded up to the nearest integer.",
+		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"></div>',
 		method:
-		function () {
-			var v = document.getElementById('number');
-			let res = document.getElementById('result');
-			res.innerText=Math.ceil(v.value);
+		function (cb) {
+			var num = document.getElementById('number').value;
+			var ceil = Math.ceil(num);
+			cb(ceil)
 		},
 	},
 	mathFloor: {
-		title: 'Math.floor',
-		name: 'MathFloor',
-		link: 'mathFloor',
+		name: 'Math.floor',
+		link: 'mathfloor',
 		button: true,
-		description: "Returns a number that is rounded down to the nearest integer.",
-        html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"><div class="in-bl mlr-10">Method Returns:<div id="result"></div></div></div>',
-		js: 'Math.floor(value);',
+		result: true,
+		description: "returns a number that is rounded down to the nearest integer.",
+        html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div class="text-center"></div>',
 		method:
-		function () {
-			var v = document.getElementById('number');
-			let res = document.getElementById('result');
-			res.innerText=Math.floor(v.value);
+		function (cb) {
+			var num = document.getElementById('number').value;
+			let down = Math.floor(num);
+			cb(down)
 		},
 	},
 	mathPow: {
-		title: 'Math.pow',
-		name: 'MathPow',
-		link: 'mathPow',
+		name: 'Math.pow',
+		link: 'mathpow',
 		button: true,
-		description: "Returns a number (using first parameter), powered to (second parameter).",
-		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""><div><label for="power">Power</label><input type="text" name="power" id="power" value=""></div><div class="text-center"><div class="in-bl mlr-10">Method returns:<div id="result"></div></div></div>',
-		js: 'Math.pow(numValue, exValue);',
+		result: true,
+		description: "returns a number (using first parameter), powered to (second parameter).",
+		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""></div><div><label for="power">Power</label><input type="text" name="power" id="power" value=""></div>',
 		method:
-		function () {
-			var v = document.getElementById('number');
-			var p = document.getElementById('power');
-			let res = document.getElementById('result');
-			res.innerText=Math.pow(v.value,p.value);
+		function (cb) {
+			var number = document.getElementById('number').value;
+			var power = document.getElementById('power').value;
+			res = Math.pow(number,power);
+			cb(res)
 		},
 	},
 	mathRandom: {
-		title: 'Math.random',
 		name: 'Math.random',
-		link: 'mathRandom',
+		link: 'mathrandom',
 		button: true,
-		description: "Returns a random number between 0 and 1",
-        html: '<div class="text-center"><div class="in-bl mlr-10">Method Returns:<div id="result"></div></div></div>',
-		js: 'Math.random()',
+		description: "returns a random number between 0 and 1",
+        html: '<div class="text-center"><div id="result"></div></div>',
 		method:
 		function () {
-			var x = 'Math.random() = ' + Math.random();
-			let res = document.getElementById('result');
-			res.innerText=x;
+			var num = Math.random();
+			document.getElementById('result').innerHTML = num;
 		},
 	},
 	mathSqrt: {
-		title: 'Math.sqrt',
-		name: 'MathSqrt',
-		link: 'mathSqrt',
+		name: 'Math.sqrt',
+		link: 'mathsqrt',
 		button: true,
-		description: "Returns the square root of the parameter.",
-		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""><div class="text-center"><div class="in-bl mlr-10">Method Returns:<div id="result"></div></div></div>',
-		js: 'Math.sqrt(value)',
+		result: true,
+		description: "returns the square root of the parameter.",
+		html: '<div><label for="number">Number</label><input type="text" name="number" id="number" value=""><div class="text-center"></div></div>',
 		method:
-		function () {
-			var v = document.getElementById('number');
-			let res = document.getElementById('result');
-			res.innerText=Math.sqrt(v.value);
+		function (cb) {
+			var n = document.getElementById('number').value;
+			var sqrt = Math.sqrt(n);
+			cb(sqrt)
 		},
 	},
 	setinterval: {
@@ -262,7 +233,8 @@ function () {
 		name: 'Splice',
 		link: 'splice',
 		button: true,
-		description: 'Removes element(s) from an array. This method alter the original array and returns the elements that were removed.<br>x: The first element to remove in the array<br>y: Total number of elements to remove',
+		mutation: 'mutate',
+		description: 'Removes element(s) from an array, and returns an array of the elements that were removed.<br>x: The first element to remove in the array<br>y: Total number of elements to remove',
 		html: `
 		<div class="text-center">
 			<div class="in-bl">
